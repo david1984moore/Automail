@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: automail-ai-server
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: HOST
+        value: 0.0.0.0
+      - key: FLASK_ENV
+        value: production
+      - key: AUTOMAIL_API_KEY
+        value: automail-dev-key-2024 
