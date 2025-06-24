@@ -55,21 +55,32 @@ class EmailClassifier:
                 device=0 if torch.cuda.is_available() else -1
             )
             
-            # Define email classification labels
-            self.classification_labels = [
-                "work and business emails",
-                "personal and social emails", 
-                "spam and promotional emails",
-                "important and urgent emails",
-                "newsletters and updates"
-            ]
+                    # Define comprehensive email classification labels for detailed categorization
+        self.classification_labels = [
+            "work and business communications",
+            "personal and social messages", 
+            "spam and promotional content",
+            "important and urgent notifications",
+            "newsletters and updates",
+            "financial and banking communications",
+            "shopping and e-commerce notifications",
+            "travel and booking confirmations",
+            "educational and learning content",
+            "social media and platform notifications",
+            "health and medical communications",
+            "legal and official documents",
+            "technical and IT communications",
+            "project management and collaboration",
+            "customer service and support",
+            "entertainment and media content"
+        ]
             
             self.is_loaded = True
-            logger.info("✅ Email classification model loaded successfully")
+            logger.info("Email classification model loaded successfully")
             return True
             
         except Exception as e:
-            logger.error(f"❌ Failed to load email classification model: {str(e)}")
+            logger.error(f"Failed to load email classification model: {str(e)}")
             # Fallback to rule-based if model fails
             self.is_loaded = False
             return False
@@ -208,16 +219,33 @@ class EmailClassifier:
             top_label = result['labels'][0]
             confidence = result['scores'][0]
             
-            # Map detailed labels to simple categories
+            # Map detailed labels to intelligent categories
             label_mapping = {
-                "work and business emails": "Work",
-                "personal and social emails": "Personal",
-                "spam and promotional emails": "Spam", 
-                "important and urgent emails": "Important",
-                "newsletters and updates": "Review"
+                "work and business communications": "Work",
+                "personal and social messages": "Personal",
+                "spam and promotional content": "Spam",
+                "important and urgent notifications": "Important",
+                "newsletters and updates": "Newsletters",
+                "financial and banking communications": "Finance",
+                "shopping and e-commerce notifications": "Shopping",
+                "travel and booking confirmations": "Travel",
+                "educational and learning content": "Education",
+                "social media and platform notifications": "Social-Media",
+                "health and medical communications": "Health",
+                "legal and official documents": "Legal",
+                "technical and IT communications": "Technical",
+                "project management and collaboration": "Projects",
+                "customer service and support": "Support",
+                "entertainment and media content": "Entertainment"
             }
             
             final_label = label_mapping.get(top_label, "Review")
+            
+            # Apply confidence-based refinement
+            if confidence < 0.6:
+                final_label = "Review"  # Low confidence items need manual review
+            elif confidence > 0.9 and "spam" in top_label.lower():
+                final_label = "Spam"  # High confidence spam detection
             
             return {
                 'label': final_label,

@@ -19,6 +19,7 @@ EXPOSE 8080
 ENV HOST=0.0.0.0
 ENV PORT=8080
 ENV FLASK_ENV=production
+ENV API_KEY=automail-prod-key-2024
 
 # Run the application
-CMD ["python", "app.py"] 
+CMD ["python", "cloud_app.py"] 

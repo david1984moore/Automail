@@ -1,25 +1,21 @@
 {
   "manifest_version": 3,
-  "name": "Automail",
+  "name": "Automail Test",
   "version": "1.0",
-  "description": "AI-powered Gmail automation extension for reading, labeling, moving, and composing emails",
+  "description": "OAuth test version",
   "permissions": [
     "storage",
-    "identity",
-    "tabs",
-    "scripting",
-    "activeTab"
+    "identity"
   ],
   "host_permissions": [
     "https://mail.google.com/*",
-    "https://gmail.googleapis.com/*",
-    "https://automail-ai-server-506990861082.us-east4.run.app/*"
+    "https://gmail.googleapis.com/*"
   ],
   "background": {
-    "service_worker": "background_chrome_identity_only.js"
+    "service_worker": "background_minimal.js"
   },
   "action": {
-    "default_title": "Automail - Toggle Sidebar"
+    "default_title": "Automail Test"
   },
   "content_scripts": [
     {
@@ -30,7 +26,7 @@
     }
   ],
   "oauth2": {
-    "client_id": "506990861082-8dss8jehi5ijek4sfg2p1srj439hk6vh.apps.googleusercontent.com",
+    "client_id": "506990861082-8dss8jehi5jek4sfg2p1srj439hk6vh.apps.googleusercontent.com",
     "scopes": [
       "https://www.googleapis.com/auth/gmail.modify",
       "https://www.googleapis.com/auth/gmail.readonly"

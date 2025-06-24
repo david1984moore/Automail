@@ -406,9 +406,12 @@ if __name__ == '__main__':
         import os
         
         # Use environment variables for cloud deployment
-        host = os.getenv('HOST', config.HOST)
-        port = int(os.getenv('PORT', config.PORT))
+        host = os.getenv('HOST', '0.0.0.0')  # Always bind to all interfaces in cloud
+        port = int(os.getenv('PORT', 8080))  # Default to Cloud Run port
         debug = os.getenv('FLASK_ENV', 'development') != 'production'
+        
+        logger.info(f"Environment check - HOST: {os.getenv('HOST')}, PORT: {os.getenv('PORT')}, FLASK_ENV: {os.getenv('FLASK_ENV')}")
+        logger.info(f"Resolved values - host: {host}, port: {port}, debug: {debug}")
         
         logger.info("Starting Automail AI Server...")
         logger.info(f"Server configuration:")

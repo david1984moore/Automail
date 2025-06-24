@@ -1,0 +1,21 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install only essential dependencies
+RUN pip install flask flask-cors
+
+# Copy only the simple server
+COPY simple_server.py .
+
+# Set environment variables
+ENV HOST=0.0.0.0
+ENV PORT=8080
+ENV FLASK_ENV=production
+ENV API_KEY=automail-prod-key-2024
+
+# Expose port
+EXPOSE 8080
+
+# Run the simple server
+CMD ["python", "simple_server.py"] 

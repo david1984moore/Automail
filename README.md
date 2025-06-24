@@ -1,3 +1,8 @@
+<!--
+Created on: 6/16/2025
+Edited on: 6/16/2025, 6/17/2025, 6/24/2025
+-->
+
 # Automail - AI-Powered Gmail Automation Extension
 
 ## Project Overview
@@ -697,3 +702,51 @@ The scrollbar implementation now meets enterprise UI/UX standards:
 - ✅ **UI/UX Enhancement: Perfect Scrollbar** - COMPLETED
 
 **Next**: Ready for Action 4 - AI Email Analysis Implementation 
+
+## 📁 **Project Structure (Clean & Organized)**
+
+### **🚀 ACTIVE PRODUCTION FILES**
+
+```
+Automail/
+├── 📄 manifest.json                    # Chrome extension manifest
+├── 🔧 background_chrome_identity_only.js  # Active background service worker
+├── 🎨 content.js                      # Gmail content script injection
+├── 💄 sidebar.css                     # Sidebar styling
+├── 🖼️ icon*.png                       # Extension icons
+├── 📦 package.json                    # Node.js dependencies
+│
+├── 🤖 automail-server/                # AI Classification Server
+│   ├── 🚀 app.py                     # Main server (Render deployment)
+│   ├── ☁️ cloud_app.py               # Google Cloud deployment  
+│   ├── 🎯 simple_server.py           # Lightweight deployment
+│   ├── 🐳 Dockerfile                 # Container config
+│   ├── 📋 requirements*.txt          # Python dependencies
+│   ├── ⚙️ utils/                     # Core utilities
+│   │   ├── classifier.py             # AI classification engine
+│   │   ├── security.py              # API security & rate limiting
+│   │   └── logging_config.py        # Structured logging
+│   └── 🔧 config/                    # Configuration management
+│
+└── 📚 docs/                          # Documentation
+    ├── SETUP_GUIDE.md                # Installation guide
+    └── technical/                    # Technical documentation
+```
+
+### **🗃️ ARCHIVED FILES (Development History)**
+
+```
+archive/
+├── 📜 background-scripts/            # Previous background implementations
+│   ├── background.js                 # Legacy implementation 
+│   ├── background_fixed.js           # Fixed version (archived)
+│   └── background_*.js               # Other variants
+├── 🧪 server-variants/               # Development server versions
+│   ├── debug_server.py              # Debug implementation
+│   ├── fast_server.py               # Fast-start version
+│   ├── fixed_server.py              # Fixed implementation
+│   └── test_*.py                     # Test files
+├── 🔧 debug-tools/                   # OAuth debugging utilities
+├── 📋 manifest-variants/             # Manifest experiments
+└── 📝 test-files/                    # Test suites
+```

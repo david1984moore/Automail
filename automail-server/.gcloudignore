@@ -1,0 +1,41 @@
+# Ignore development files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.venv/
+venv/
+.git/
+.gitignore
+.pytest_cache/
+*.log
+requirements.txt
+*.md
+
+# Ignore local test files
+test_*.py
+debug_*.py
+simple_test.py
+startup_test.py
+
+# Ignore IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore large model cache and logs
+models/
+*.h5
+*.bin
+automail-server.log
+
+# Ignore original heavy app
+app.py
+fixed_server.py
+fast_server.py 
