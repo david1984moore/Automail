@@ -31,4 +31,15 @@ build/
 # Chrome extension artifacts
 *.pem
 *.crx
-*.zip 
+*.zip
+
+# AI Models (too large for GitHub)
+automail-server/models/
+*.safetensors
+*.bin
+huggingface_cache/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo 
